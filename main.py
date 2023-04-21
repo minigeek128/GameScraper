@@ -1,7 +1,10 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from database import browse
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
+        mySearch=browse("http://www.github.com/")
+        print(mySearch.name)
         try:
             with open('templates/index.html', 'r') as f:
                 content = f.read()
